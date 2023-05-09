@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Taco Todo List</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Taco Todo List</h1>
+		<p>Welcome to the taco todo list! Here, you can keep track of all the taco-related tasks you need to complete. Check them off as you go and enjoy some delicious tacos along the way.</p>
+		<form id="add-taco-form">
+			<label for="taco-input">Add a new taco task:</label>
+			<input type="text" id="taco-input" placeholder="Enter task...">
+			<button type="submit">Add</button>
+		</form>
+		<ul id="taco-list"></ul>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
