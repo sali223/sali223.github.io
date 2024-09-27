@@ -1,0 +1,43 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class SchoolAttendance {
+
+    // Database URL, username, and password
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/SchoolAttendance";
+    private static final String USER = "yourUsername";  // add db name 
+    private static final String PASS = "yourPassword";   // add db name to connect it 
+
+    public static void main(String[] args) {
+        // Connect to the database and retrieve attendance records
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement()) {
+
+            // Query to fetch attendance records
+            String sql = "SELECT s.studentName, s.class, "
+                       + "COALESCE(a.attendanceStatus, 'Not Recorded') AS attendanceStatus, "
+                       + "a.attendanceDate "
+                       + "FROM Students s "
+                       + "LEFT JOIN AttendanceRecords a ON s.studentID = a.studentID "
+                       + "WHERE a.attendanceDate BETWEEN '2023-09-01' AND '2023-09-30' "
+                       + "ORDER BY s.studentName, a.attendanceDate;";
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // Process the result set
+            System.out.println("Student Name\tClass\tAttendance Status\tDate");
+            while (rs.next()) {
+                String studentName = rs.getString("studentName");
+                String studentClass = rs.getString("class");
+                String attendanceStatus = rs.getString("attendanceStatus");
+                String attendanceDate = rs.getString("attendanceDate");
+
+                System.out.printf("%s\t%s\t%s\t%s%n", studentName, studentClass, attendanceStatus, attendanceDate);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
