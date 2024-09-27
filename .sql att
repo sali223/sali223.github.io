@@ -1,0 +1,52 @@
+-- Create the database
+CREATE DATABASE SchoolAttendance;
+
+-- Use the database
+USE SchoolAttendance;
+
+-- Create the Students table
+CREATE TABLE Students (
+    studentID INT AUTO_INCREMENT PRIMARY KEY,
+    studentName VARCHAR(100) NOT NULL,
+    class VARCHAR(50) NOT NULL
+);
+
+-- Create the AttendanceRecords table
+CREATE TABLE AttendanceRecords (
+    recordID INT AUTO_INCREMENT PRIMARY KEY,
+    studentID INT,
+    attendanceDate DATE NOT NULL,
+    attendanceStatus ENUM('Present', 'Absent', 'Late') NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Students(studentID)
+);
+
+-- Insert sample students
+INSERT INTO Students (studentName, class) VALUES
+('Alice Johnson', '5th Grade'),
+('Bob Smith', '5th Grade'),
+('Charlie Brown', '6th Grade'),
+('Diana Prince', '6th Grade');
+
+-- Insert sample attendance records
+INSERT INTO AttendanceRecords (studentID, attendanceDate, attendanceStatus) VALUES
+(1, '2023-09-01', 'Present'),
+(1, '2023-09-02', 'Absent'),
+(2, '2023-09-01', 'Present'),
+(2, '2023-09-02', 'Present'),
+(3, '2023-09-01', 'Late'),
+(4, '2023-09-02', 'Present');
+
+SELECT 
+    s.studentName,
+    s.class,
+    COALESCE(a.attendanceStatus, 'Not Recorded') AS attendanceStatus,
+    a.attendanceDate
+FROM 
+    Students s
+LEFT JOIN 
+    AttendanceRecords a ON s.studentID = a.studentID
+WHERE 
+    a.attendanceDate BETWEEN '2023-09-01' AND '2023-09-30'  -- Specify your date range here
+ORDER BY 
+    s.studentName, a.attendanceDate;
+
