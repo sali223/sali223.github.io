@@ -1,0 +1,22 @@
+// connect to node js, and use driver to get the sql data from dbeaver
+var Connection = require('tedious').Connection;  
+    var config = {  
+        server: 'sharmarke-local-db',
+        authentication: {
+            type: 'default',
+            options: {
+                userName: 'admin', // password
+                password: 'admin', // passsword
+            }
+        },
+        options: {
+            encrypt: true,
+            database: 'sharmarke-local-db'  
+        }
+    };  
+    var connection = new Connection(config);  
+    connection.on('connect', function(err) {  
+        console.log("Connected");  
+    });
+    
+    connection.connect();
