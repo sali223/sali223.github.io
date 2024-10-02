@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Attendance System</title>
+    <link rel="stylesheet" href="js.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Album</h1>
+        <nav>
+            <ul>
+                <li><a href="name">Add Student</a></li>
+                <li><a href="title">Attendance List</a></li>
+                <li><a href="album">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="root"></div>
+    </main>
+
+    <footer>
+        <p>&copy; Album</p>
+    </footer>
+
+    <script src="js.1.js"></script>
+</body>
+</html>
