@@ -1,0 +1,87 @@
+const { Connection, Request } = require('tedious');
+const mysql = require('mysql');
+
+// SQL Server connection configuration using Tedious
+const sqlConfig = {
+    server: 'localhost',
+    authentication: {
+        type: 'default',
+        options: {
+            userName: 'admin',
+            password: 'admin',
+        }
+    },
+    options: {
+        encrypt: true, // Use encryption for security
+        database: 'localhost',
+        port: 3306 // Default port for SQL Server
+    }
+};
+
+// MySQL connection configuration
+const mysqlConfig = {
+    host: 'localhost',
+    user: 'admin',
+    password: 'admin',
+    port: 3306 // Default port for MySQL
+};
+
+// Connect to SQL Server
+const sqlConnection = new Connection(sqlConfig);
+sqlConnection.on('connect', (err) => {
+    if (err) {
+        console.error('SQL Server connection failed: ', err);
+    } else {
+        console.log("Connected to SQL Server");
+        executeStatement1(); // Execute the SQL query after connection
+    }
+});
+sqlConnection.connect();
+
+// Connect to MySQL
+const mysqlConnection = mysql.createConnection(mysqlConfig);
+mysqlConnection.connect(err => {
+    if (err) {
+        console.error('MySQL connection error: ', err);
+    } else {
+        console.log("Connected to MySQL");
+    }
+});
+
+// Function to execute SQL statement on SQL Server
+function executeStatement1() {
+    const request = new Request("SELECT * FROM Album", (err) => {
+        if (err) {
+            console.error('Error executing SQL Server query: ', err);
+        }
+    });
+
+    request.on('row', (columns) => {
+        columns.forEach((column) => {
+            if (column.value === null) {
+                console.log('NULL');
+            } else {
+                console.log("Column value: " + column.value);
+            }
+        });
+    });
+
+    request.on('doneProc', (rowCount, more) => {
+        console.log(`${rowCount} row(s) returned from SQL Server`);
+    });
+
+    sqlConnection.execSql(request);
+}
+
+// Example function to execute a MySQL query
+function executeMySQLQuery() {
+    mysqlConnection.query('SELECT * FROM Album', (err, results) => {
+        if (err) {
+            console.error('Error executing MySQL query: ', err);
+        } else {
+            results.forEach(row => {
+                console.log("MySQL Column value: ", row);
+            });
+        }
+    });
+}
