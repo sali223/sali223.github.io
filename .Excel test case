@@ -1,0 +1,20 @@
+	TEST CASE PLANNING AND EXECUTION TEMPLATE								
+		TEST TITLE	PRIORITY	TEST CASE ID	TEST NUMBER	TEST DATE			PRIORITY KEY
+		#SEL101	High	TC001	TC-01 	08/29/2024			LOW 
+		TEST DESCRIPTION		TEST DESIGNED BY	TEST EXECUTED BY	EXECUTION DATE			MEDIUM
+		Verify Infinite campus career page		Sharmarke Ali	Sharmarke Ali	09/29/2024			HIGH
+									
+		TEST DESCRIPTION		TEST DEPENDENCIES	TEST CONDITIONS		TEST CONTROL		
+		The test will involve performing a serch on google with the right URL as shown for the first result. 		 web browser	"Condition 1: The user has access to the internet and can perform a Google search.
+Condition 2: Google Search is available and functional.
+Condition 3: The search query ""Ineed page"" should be relevant and yield job serch results."		Ensure the functionality of the job seeker’s ability to find and view job openings on the Indeed website through a Google search.		
+									
+	STEP ID	STEP DESCRIPTION	TEST DATE	EXPECTED RESULTS		PASS / FAIL	ADDITIONAL NOTES		
+	TC-01	Ensure that performing a Google search for "Ineed" displays the job career page as the first result.	09/29/2024	 User has access to Google search engine.	The Infinite Campus career page is displayed as the first result in the search results list.	pass	High priority, Test cases should be executed in a clean environment, ensuring no influence from personalized search history or cached results.		
+	TC-02	Confirm that clicking on the first search result goes to the Infinite Campus career page, which contains the "View Open Positions" button.	09/29/2024	The Indeed job page loads with one or more buttons labeled “New job's”.	Ensure that the link is correct and not redirected to a different page.	Pass	 Ensure that the URL is properly encoded and does not contain any unusual characters.		
+	TC-03	Verify that clicking on the “View Open Positions” button on the Ineed job page opens a new tab showing current job openings.	09/29/2024	" A new tab opens displaying the list of current job openings on indeed.
+Actual Result: (To be filled during testing)"	Confirm that the new tab opens correctly and that it accurately displays the list of job openings.	pass	Ensure the job listings are displayed in the new tab with accurate information.		
+	TC-04	 Verify that the entire flow (from Google search to job listing page) works across different browsers.	08/29/2024	The flow works consistently across different browsers. Functional test environment with multiple browsers installed.	"The correct search result appears on Google.
+The “View Open Positions” button leads to the correct job listings page across all browsers."	Pass	"	Perform the test on multiple browsers for consistency. Chrome, Firefox, Safari, Edge. "		
+	TC-05	Verifies that the career page and job listings are correctly displayed on mobile devices. Access to mobile browsers or the ability to simulate a mobile view on desktop browsers.		The page and its functionality work as expected on mobile devices, with no broken elements or misalignments. Validate the data elements and endpoints are correctly displaying both mobile and computer screen.	Confrim if all elements are correctly displayed and functional. Fail if the page does not adjust to the mobile view properly.	Pass	"	Ensure to test on both Android and iOS devices."		
+	TC-06	Validate the data for job posting is correctly displaying. Validate the data elements and endpoints are correctly displaying both mobile and computer screen.		the data for job posting is correctly displaying.	Ensure the job posting display with correct data such job number, jobID, Expeience, education, and job posting dataes.	Pass	use technology helps 		
