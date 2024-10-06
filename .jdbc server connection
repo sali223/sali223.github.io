@@ -1,0 +1,7 @@
+"jdbc:sqlserver://yourserver.database.windows.net:1433;"
+                        + "database=localhost;"
+                        + "user=admin;"
+                        + "password=admin;"
+                        + "encrypt=true;"
+                        + "trustServerCertificate=false;"
+                        + "loginTimeout=30;";
