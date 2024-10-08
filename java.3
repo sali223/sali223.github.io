@@ -1,0 +1,26 @@
+import java.mysql.Connection;
+import java.mysql.DriverManager;
+import java.mysql.ResultSet;
+import java.mysql.mysqlException;
+
+public class mysqlDatabaseConnection {
+    public static void main(String[] args) {
+        // Connection string 
+        String connectionUrl =
+                "jdbc:sqlserver://yourserver.database.windows.net:1433;"
+                        + "databaseName=yourDatabaseName;" // database 
+                        + "user=admin;"              //  username
+                        + "password=admin;"          // password
+                        + "encrypt=true;"
+                        + "trustServerCertificate=false;"
+                        + "loginTimeout=30;";
+
+        // connection object
+        try (Connection connection = DriverManager.getConnection(connectionUrl)) {
+            System.out.println("Connected to the database.");
+            //execute mySql 
+        } catch (mySqlException e) {
+            e.printStackTrace();
+        }
+    }
+}
