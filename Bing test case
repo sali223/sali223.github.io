@@ -1,0 +1,31 @@
+Test Case: Search Functionality on Bing
+Test Case ID: TC_Bing_001
+
+Test Case Name: Verify Search Functionality
+
+Objective: To ensure that the search functionality returns relevant results for valid queries.
+
+Preconditions:
+
+The user has access to the internet.
+The Bing website is accessible.
+Test Steps:
+
+Open a web browser.
+Navigate to the Bing homepage (https://www.bing.com).
+In the search bar, enter a valid search query (e.g., "best restaurants in New York").
+Press the "Enter" key or click on the search icon.
+Expected Results:
+
+The search results page loads within 2 seconds.
+The page displays a list of search results relevant to the query.
+The results include a mix of organic listings and possibly ads (if applicable).
+Each result displays the title, URL, and a brief description.
+The user should be able to click on the links and be directed to the appropriate pages.
+Postconditions:
+
+The user can view and interact with the search results.
+Notes:
+
+Consider testing with various types of queries (e.g., questions, phrases, single words) to ensure robustness.
+Test the search functionality with different browsers and devices for cross-compatibility.
