@@ -1,0 +1,31 @@
+using System;
+
+namespace HelloWorld
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Declare variables
+            int i = 10;
+            float f = 2.0f;
+            decimal d = 10.0m;
+            bool b = true;
+            char c = 'c';
+
+            // Declare a string 
+            string str = "a string";
+
+            // Declare implicit variables
+            var x = 10;
+            var z = "Hello!";
+
+            // Declare an array of val
+            int[] vals = new int[5];
+            string[] strArray = { "one", "two", "three" };
+
+            // Print 
+            Console.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}", i, c, b, str, f, d, x, z);
+        }
+    }
+}
