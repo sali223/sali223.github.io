@@ -1,6 +1,0 @@
-if True:
-    print("this is a code block")
-    print("this is a the same code block")
-else:
-    print("this a new code block")
-    print("thizs is the same code block")
